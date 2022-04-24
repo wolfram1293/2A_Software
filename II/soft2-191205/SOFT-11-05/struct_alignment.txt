@@ -1,0 +1,18 @@
+実行結果は
+s_end:0x7ffee0b0f7a0 0x7ffee0b0f7a4 0x7ffee0b0f7a8 0x7ffee0b0f80c 0x7ffee0b0f810 0x7ffee0b0f818
+s3:0x7ffee0b0f820 0x7ffee0b0f824 0x7ffee0b0f828 0x7ffee0b0f88c 0x7ffee0b0f890 0x7ffee0b0f898
+s2:0x7ffee0b0f8a0 0x7ffee0b0f8a4 0x7ffee0b0f908 0x7ffee0b0f910 0x7ffee0b0f918 0x7ffee0b0f920
+s1:0x7ffee0b0f928 0x7ffee0b0f92c 0x7ffee0b0f990 0x7ffee0b0f998 0x7ffee0b0f9a0
+s_begin:0x7ffee0b0f9a8 0x7ffee0b0f9ac 0x7ffee0b0fa10 0x7ffee0b0fa18 0x7ffee0b0fa20
+となった。この下4桁は以下である。
+f7a0 f7a4 f7a8 f80c f810 f818
+f820 f824 f828 f88c f890 f898
+f8a0 f8a4 f908 f910 f918 f920
+f928 f92c f990 f998 f9a0
+f9a8 f9ac fa10 fa18 fa20
+
+char型の変数であるtagは1バイトであるが、アライメントにより見かけのサイズが異なる。
+s_end、s3は構造体の最初にtagが来ることによって、4バイト境界へのアラインメントによりサイズは4バイトとなる。
+一方s2では、構造体の最後にtagが来ることによって、次の変数までの領域が8バイト分確保される。
+またint型変数ageもtagged_student2の内部においては4バイトのみ確保しているのに対し、student、tagged_student1型の中では8バイト確保されている。
+これは次のdouble型heightを8の倍数のメモリアドレスから読み取るために４つのパディングバイトが挿入されたためと考えられる。

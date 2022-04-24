@@ -1,0 +1,16 @@
+circle 20 20 5
+pen S
+circle 20 20 10
+pen $
+circle 20 20 15
+line 20 20 40 0
+pen +
+line 20 20 40 40
+pen #
+fill 22 20
+pen &
+fill 12 20
+pen @
+fill 32 20
+pen "
+fill 0 0

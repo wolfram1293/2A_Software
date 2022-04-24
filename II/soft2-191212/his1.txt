@@ -1,0 +1,7 @@
+circle 20 20 10
+circle 20 20 5
+pen S
+pen S
+circle 20 20 5
+pen $
+circle 20 20 15
